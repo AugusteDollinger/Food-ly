@@ -1,3 +1,10 @@
+<?php
+include 'base-start.php';
+if (!isset($_SESSION['id'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +13,9 @@
 </head>
 <body>
 <a href="dashboard.php">Admin dashboard</a>
+<a href="show-favorite.php">Favorites</a>
+<a href="logout.php">Logout</a>
+<h1>Interactive AI</h1>
 
 <?php
 include "index-includes/prompt-form.php";
@@ -120,16 +130,15 @@ include "index-includes/prompt-form.php";
         diet : "whatever",
         level : "easy/medium/hard",
         ingredient: {
-            1 : "ingredient1(only give one ingredient name)",
-            2 : "ingredient2(only give one ingredient name)",
-            3 : "ingredient3(only give one ingredient name)",
+            1 : "ingredient1(only give one ingredient name and only name it in the singular)",
+            2 : "ingredient2(only give one ingredient name and only name it in the singular)",
+            3 : "ingredient3(only give one ingredient name and only name it in the singular)",
             4 : "etc...",
         }
         instruction(less than 400 characters) : "whatever",
-    } each one of the recipies could possibly contain ${document.getElementById('seleted-ingredient').textContent} that is a ${document.getElementById('select-by-type')}, that is from ${document.getElementById('select-by-origine').value} that has a  ${document.getElementById('select-by-regime').value}. if any of the information given seem off just send random dishes you find.`;
+    } each one of the recipies contain ${document.getElementById('seleted-ingredient').textContent} that is a ${document.getElementById('select-by-type')}, that is from ${document.getElementById('select-by-origine').value} that has a  ${document.getElementById('select-by-regime').value}. If some of the information given have nothing to do with food please ignore it.`;
         submitPrompt(phpPrompt);
     }
-
 </script>
 </body>
 </html>

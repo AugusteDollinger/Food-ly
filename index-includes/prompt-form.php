@@ -1,7 +1,6 @@
 <?php
-include 'base-start.php';
 
-$sql = 'SELECT * FROM ingredient';
+$sql = 'SELECT * FROM ingredient group by LIBELLE_INGREDIENT';
 $result = $base->prepare($sql);
 $result->execute();
 $ingredients = [];
@@ -13,7 +12,8 @@ while ($row = $result->fetch()) {
 <br><input type="text" id="search-an-ingredient" placeholder="Select your ingredients" >
 <select name="select-by-ingredient[]" id="select-by-ingredient" multiple>
 
-</select><br><br>
+</select>
+<p>Selected ingredient : <pre id="seleted-ingredient" style="font-weight: 900"></pre></p>
 <label for="select-by-origine">Select the origin :</label>
 <select name="select-by-origine" id="select-by-origine">
     <?php
@@ -25,7 +25,6 @@ while ($row = $result->fetch()) {
     }
     ?>
 </select><br>
-<p>Selected ingredient : <span id="seleted-ingredient">None</span></p>
 <br>
 <label for="select-by-type">Select the type :</label>
 <select name="select-by-type" id="select-by-type">
@@ -87,11 +86,8 @@ while ($row = $result->fetch()) {
             console.log(selectedIngredients)
         }
         showIngredients()
-        if (selectedIngredients.length === 0) {
-            document.getElementById('seleted-ingredient').textContent = 'None';
-        }
-        else {
-            document.getElementById('seleted-ingredient').textContent = selectedIngredients.join(', ');
-        }
+
+        document.getElementById('seleted-ingredient').textContent = selectedIngredients.join(', ');
+
     });
 </script>
