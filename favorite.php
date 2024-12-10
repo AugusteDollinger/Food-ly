@@ -50,9 +50,9 @@ try {
     $result->execute(array('name' => $newJson['name']));
     $row = $result->fetch(PDO::FETCH_ASSOC);
     if (!$row) {
-        $sql = 'INSERT INTO plat (ID_PLAT, LIBELLE_PLAT, NIVEAU_DIFFICULTE, INSTRUCTION, ID_ORIGINE, ID_TYPE, ID_REGIME, ID_USER) VALUES (:id, :name, :level, :instruction, :origin, :type, :regime, :id_user)';
+        $sql = 'INSERT INTO plat (ID_PLAT, LIBELLE_PLAT, NIVEAU_DIFFICULTE, INSTRUCTION, ID_ORIGINE, ID_TYPE, ID_REGIME, ID_USER, HEALTH) VALUES (:id, :name, :level, :instruction, :origin, :type, :regime, :id_user, :health)';
         $result = $base->prepare($sql);
-        $result->execute(array('id' => $id_plat, 'name' => $newJson['name'], 'level' => $newJson['level'], 'instruction' => $newJson['instruction'], 'origin' => $id_origin, 'type' => $id_type, 'regime' => $id_regime, 'id_user' => $_SESSION['id']));
+        $result->execute(array('id' => $id_plat, 'name' => $newJson['name'], 'level' => $newJson['level'], 'instruction' => $newJson['instruction'], 'origin' => $id_origin, 'type' => $id_type, 'regime' => $id_regime, 'id_user' => $_SESSION['id'], 'health' => $newJson['health']));
     }
 } catch (PDOException $e) {
     echo 'Error: ' . $e->getMessage();

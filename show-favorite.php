@@ -1,5 +1,13 @@
 <?php
 include "base-start.php";
+if (isset($_GET['id'])) {
+    $sql = 'DELETE FROM plat WHERE ID_PLAT = :id';
+    $result = $base->prepare($sql);
+    $result->execute(array('id' => $_GET['id']));
+    $sql = 'DELETE FROM plat_ingredient WHERE ID_PLAT = :id';
+    $result = $base->prepare($sql);
+    $result->execute(array('id' => $_GET['id']));
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -9,6 +17,7 @@ include "base-start.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Favorites</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a href="index.php">Home</a>
@@ -28,6 +37,7 @@ while ($row = $result->fetch()) {
     echo '<p>Type: ' . $row['LIBELLE_TYPE'] . '</p>';
     echo '<p>Regime: ' . $row['LIBELLE_REGIME'] . '</p>';
     echo '<p>Level: ' . $row['NIVEAU_DIFFICULTE'] . '</p>';
+    echo '<p>Health: ' . $row['HEALTH'] . '</p>';
     echo '<p>Ingredients:</p>';
     echo '<ul>';
     $sql = 'SELECT * FROM plat_ingredient JOIN ingredient ON plat_ingredient.ID_INGREDIENT = ingredient.ID_INGREDIENT WHERE ID_PLAT = :id ';
@@ -38,6 +48,7 @@ while ($row = $result->fetch()) {
     }
     echo '</ul>';
     echo '<p>Instructions: '.$row['INSTRUCTION'].'</p>';
+    echo '<a href="show-favorite.php?id='.$row['ID_PLAT'].'">Delete</a>';
     echo '</div>';
 }
 ?>

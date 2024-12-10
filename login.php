@@ -25,6 +25,7 @@ if (isset($_POST['user-name']) && isset($_POST['password']) && !empty($_POST['us
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a href="register.php">register</a>
