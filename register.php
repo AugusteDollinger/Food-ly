@@ -29,11 +29,16 @@ if (isset($_SESSION['id'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a href="login.php">login</a>
-<form action="register.php" method="post">
-    <input type="text" name="user-name"><br> <br>
-    <input type="password" name="password"><br> <br>
-    <input type="submit" value="Register">
-</form>
+<main id="login-register-main">
+    <nav>
+        <a href="login.php">login</a>
+    </nav>
+
+    <form action="register.php" method="post" id="login-register-form">
+        <input type="text" name="user-name"><br> <br>
+        <input type="password" name="password"><br> <br>
+        <input type="submit" value="Register">
+    </form>
+</main>
 </body>
 </html>

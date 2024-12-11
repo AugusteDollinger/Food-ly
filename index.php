@@ -17,21 +17,24 @@ if (!isset($_SESSION['id'])) {
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav>
-    <a href="dashboard.php">Admin dashboard</a>
-    <a href="show-favorite.php">Favorites</a>
-    <a href="logout.php">Logout</a>
-</nav>
-<h1 id="index-title">Interactive AI</h1>
+<main>
+    <nav>
+        <a href="index.php" id="logo">LOGO</a>
+        <a href="dashboard.php">Admin dashboard</a>
+        <a href="show-favorite.php">Favorites</a>
+        <a href="logout.php">Logout</a>
+    </nav>
+    <h1 id="index-title">Interactive AI</h1>
 
-<?php
-include "index-includes/prompt-form.php";
-?>
+    <?php
+    include "index-includes/prompt-form.php";
+    ?>
 
-<div id="output">Enter your preferences</div>
+    <div id="output">Enter your preferences</div>
+</main>
 <script>
     function displayDishes(jsonString) {
         const outputDiv = document.getElementById('output');

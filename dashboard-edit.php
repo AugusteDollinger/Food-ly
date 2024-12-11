@@ -14,14 +14,16 @@ include "dashboard-includes/sql-requests/sql-update.php";
     <link rel="stylesheet" href="">
 </head>
 <body>
-<form action="dashboard-edit.php" method="post">
-    <label for="ingredient">Edit the <?php echo $_GET['from']?> :</label>
-    <input type="text" name="new-value" value="<?php echo $row['LIBELLE_'.strtoupper($_GET['from'])]; ?>">
-    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-    <input type="submit" value="Edit" name="edit">
-    <input type="submit" value="Delete" name="delete">
-    <input type="hidden" name="from" value="<?php echo $_GET['from']; ?>">
-    <input type="hidden" name="where" value="<?php echo $_GET['where']; ?>">
-</form>
+<main>
+    <form action="dashboard-edit.php" method="post">
+        <label for="ingredient">Edit the <?php echo $_GET['from']?> :</label>
+        <input type="text" name="new-value" value="<?php echo $row['LIBELLE_'.strtoupper($_GET['from'])]; ?>">
+        <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+        <input type="submit" value="Edit" name="edit">
+        <input type="submit" value="Delete" name="delete">
+        <input type="hidden" name="from" value="<?php echo $_GET['from']; ?>">
+        <input type="hidden" name="where" value="<?php echo $_GET['where']; ?>">
+    </form>
+</main>
 </body>
 </html>

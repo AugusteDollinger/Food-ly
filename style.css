@@ -1,86 +1,32 @@
-.roboto-thin {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
-
-.roboto-light {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.roboto-regular {
-    font-family: "Roboto", sans-serif;
+.jockey-one-regular {
+    font-family: "Jockey One", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
-.roboto-medium {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.roboto-bold {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.roboto-black {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-}
-
-.roboto-thin-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-}
-
-.roboto-light-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.roboto-regular-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.roboto-medium-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-}
-
-.roboto-bold-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
-.roboto-black-italic {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-}
 * {
-    font-family: "Roboto", sans-serif;
+    font-family: "Jockey One", sans-serif;
+    color: #505050;
 }
 body {
     margin: 0;
     padding: 0;
-    background: #a3e3ff;
+    background: rgba(163, 227, 255, 0.75);
+    display: flex;
+    justify-content: center;
+}
+main {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
 }
 #index-title {
     font-size: 2em;
     font-weight: 700;
-    color: #000000;
     text-align: center;
     margin: 0;
     padding: 10px;
@@ -92,7 +38,7 @@ input, select{
     min-width: 300px;
 }
 #create-prompt-form {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -103,4 +49,33 @@ input, select{
     flex-direction: column;
     justify-content: space-around;
     min-height: 300px;
+    width: 100%;
+
+}
+#create-prompt-form ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    padding: 30px 0;
+}
+nav a {
+    text-decoration: none;
+    margin: 0 20px;
+}
+#logo {
+    position: absolute;
+    left: 0;
+}
+#create-prompt-form {
+    margin-bottom: 50px;
 }

@@ -11,29 +11,15 @@ while ($row = $result->fetch()) {
     <ul>
         <li>
             <input type="text" id="search-an-ingredient" placeholder="Select your ingredients" >
-        </li>
-        <li>
-            <p>Selected ingredient : </p>
-        </li>
-        <li>
-            <label for="select-by-origine">Select the origin :</label>
-        </li>
-        <li>
-            <label for="select-by-type">Select the type :</label>
-        </li>
-        <li>
-            <label for="select-by-regime">Select the diet :</label>
-        </li>
-    </ul>
-    <ul>
-        <li>
             <select name="select-by-ingredient[]" id="select-by-ingredient" multiple>
             </select>
         </li>
         <li>
+            <p>Selected ingredient : </p>
             <pre id="seleted-ingredient" style="font-weight: 900"></pre>
         </li>
         <li>
+            <label for="select-by-origine">Select the origin :</label>
             <select name="select-by-origine" id="select-by-origine">
                 <?php
                 $sql = 'SELECT * FROM origine';
@@ -46,6 +32,7 @@ while ($row = $result->fetch()) {
             </select>
         </li>
         <li>
+            <label for="select-by-type">Select the type :</label>
             <select name="select-by-type" id="select-by-type">
                 <?php
                 $sql = 'SELECT * FROM type';
@@ -58,6 +45,7 @@ while ($row = $result->fetch()) {
             </select>
         </li>
         <li>
+            <label for="select-by-regime">Select the diet :</label>
             <select name="select-by-regime" id="select-by-regime">
                 <?php
                 $sql = 'SELECT * FROM regime';

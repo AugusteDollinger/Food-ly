@@ -18,14 +18,15 @@ include 'dashboard-includes/sql-requests/sql-add.php';
     </style>
 </head>
 <body>
-<a href="index.php">Menu</a>
+<main>
+    <a href="index.php">Menu</a>
 
-<?php
-include 'dashboard-includes/ingredients.php';
-include 'dashboard-includes/origines.php';
-include 'dashboard-includes/type.php';
-include 'dashboard-includes/regime.php';
-?>
-
+    <?php
+    include 'dashboard-includes/ingredients.php';
+    include 'dashboard-includes/origines.php';
+    include 'dashboard-includes/type.php';
+    include 'dashboard-includes/regime.php';
+    ?>
+</main>
 </body>
 </html>
