@@ -60,6 +60,7 @@ while ($row = $result->fetch()) {
     </ul>
 </div>
 <button onclick="createPrompt()">Create menu</button>
+<div id="output">Enter your preferences</div>
 
 <script>
     const selectIngredients = document.getElementById('select-by-ingredient');

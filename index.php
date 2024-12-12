@@ -33,20 +33,27 @@ if (!isset($_SESSION['id'])) {
     include "index-includes/prompt-form.php";
     ?>
 
-    <div id="output">Enter your preferences</div>
 </main>
 <script>
     function displayDishes(jsonString) {
         const outputDiv = document.getElementById('output');
         outputDiv.innerHTML = ''; // Clear previous content
+        outputDiv.style.textAlign = 'Left';
+        outputDiv.style.backgroundColor = 'white';
 
         const dishes = JSON.parse(jsonString);
-
+        let count = 0;
         dishes.forEach(dish => {
+            count++;
+            const backgroundDiv = document.createElement('div');
+            backgroundDiv.style.backgroundColor = count % 2 === 0 ? '#1975fa' : '';
+            backgroundDiv.style.display = 'flex';
+            backgroundDiv.style.justifyContent = 'center';
+            backgroundDiv.style.margin = '10px';
+            backgroundDiv.style.padding = '50px';
+            backgroundDiv.style.width = '100vw';
             const dishDiv = document.createElement('div');
-            dishDiv.style.border = '1px solid black';
-            dishDiv.style.margin = '10px';
-            dishDiv.style.padding = '10px';
+            dishDiv.style.width = '50%';
 
             const name = document.createElement('h2');
             name.textContent = `Name: ${dish.name}`;
@@ -78,7 +85,9 @@ if (!isset($_SESSION['id'])) {
             for (const key in dish.ingredient) {
                 const ingredient = document.createElement('li');
                 ingredient.textContent = dish.ingredient[key];
+                ingredient.style.color = count % 2 === 0 ? 'white' : '';
                 ingredientsList.appendChild(ingredient);
+
             }
             dishDiv.appendChild(ingredients);
             dishDiv.appendChild(ingredientsList);
@@ -97,8 +106,20 @@ if (!isset($_SESSION['id'])) {
                         console.error('Error adding dish to favorites:', error);
                     });
             };
+            name.style.color = count % 2 === 0 ? 'white' : '';
+            origin.style.color = count % 2 === 0 ? 'white' : '';
+            type.style.color = count % 2 === 0 ? 'white' : '';
+            regime.style.color = count % 2 === 0 ? 'white' : '';
+            level.style.color = count % 2 === 0 ? 'white' : '';
+            health.style.color = count % 2 === 0 ? 'white' : '';
+            instruction.style.color = count % 2 === 0 ? 'white' : '';
+            favoriteButton.style.backgroundColor = count % 2 === 0 ? 'white' : '';
+            favoriteButton.style.color = count % 2 === 0 ? '#1975fa' : '';
+            ingredients.style.color = count % 2 === 0 ? 'white' : '';
+
             dishDiv.appendChild(favoriteButton);
-            outputDiv.appendChild(dishDiv);
+            backgroundDiv.appendChild(dishDiv);
+            outputDiv.appendChild(backgroundDiv);
         });
     }
     const outputDiv = document.getElementById('output');
@@ -140,6 +161,9 @@ if (!isset($_SESSION['id'])) {
             });
     }
     function createPrompt() {
+        const outputDiv = document.getElementById('output');
+        outputDiv.style.textAlign = 'center';
+        outputDiv.style.backgroundColor = 'transparent';
         const phpPrompt = `can you find 5 dishes of the form and only return json table with the following fields : {
         name : "whatever",
         origin : "whatever",

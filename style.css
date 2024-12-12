@@ -77,5 +77,23 @@ nav a {
     left: 0;
 }
 #create-prompt-form {
-    margin-bottom: 50px;
+    padding-bottom: 50px;
+    position: relative;
+}
+#output {
+    border-top: 1px solid black;
+    padding-top: 20px;
+    width: 100vw;
+    text-align: center;
+}
+button {
+    margin: 10px;
+    background-color: #1975fa;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    bottom: -30px;
 }
