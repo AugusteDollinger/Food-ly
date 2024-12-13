@@ -17,12 +17,16 @@ if (isset($_GET['id'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Favorites</title>
-    <link rel="stylesheet" href="style.css">
+    <?php
+    include "style-links.php";
+    ?>
 </head>
 <body>
 <main>
-    <a href="index.php">Home</a>
-    <h1>Your Favorites</h1>
+    <?php
+    include "nav-bar.php";
+    ?>
+    <h1 id="favorite-title">Your Favorites</h1>
     <?php
     $sql = 'SELECT *, plat.LIBELLE_PLAT AS PLAT_LIBELLE FROM plat 
             JOIN origine ON plat.ID_ORIGINE = origine.ID_ORIGINE 
@@ -31,7 +35,8 @@ if (isset($_GET['id'])) {
     $result = $base->prepare($sql);
     $result->execute(array('id' => $_SESSION['id']));
     while ($row = $result->fetch()) {
-        echo '<div style="border: 1px solid black; margin: 10px; padding: 10px;">';
+        echo '<section class="favorite-section">';
+        echo '<article style="margin: 10px; padding: 10px; width: 50%" class="favorite-div">';
         echo '<h2>Name: ' . $row['PLAT_LIBELLE'] . '</h2>';
         echo '<p>Origin: ' . $row['LIBELLE_ORIGINE'] . '</p>';
         echo '<p>Type: ' . $row['LIBELLE_TYPE'] . '</p>';
@@ -49,7 +54,8 @@ if (isset($_GET['id'])) {
         echo '</ul>';
         echo '<p>Instructions: '.$row['INSTRUCTION'].'</p>';
         echo '<a href="show-favorite.php?id='.$row['ID_PLAT'].'">Delete</a>';
-        echo '</div>';
+        echo '</article>';
+        echo '</section>';
     }
     ?>
 </main>

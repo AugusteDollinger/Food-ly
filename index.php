@@ -14,19 +14,15 @@ if (!isset($_SESSION['id'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Interactive AI</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <?php
+    include "style-links.php";
+    ?>
 </head>
 <body>
 <main>
-    <nav>
-        <a href="index.php" id="logo">LOGO</a>
-        <a href="dashboard.php">Admin dashboard</a>
-        <a href="show-favorite.php">Favorites</a>
-        <a href="logout.php">Logout</a>
-    </nav>
+    <?php
+    include "nav-bar.php";
+    ?>
     <h1 id="index-title">Interactive AI</h1>
 
     <?php

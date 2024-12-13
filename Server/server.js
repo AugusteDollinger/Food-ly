@@ -1,18 +1,16 @@
-require('dotenv').config()
-
-const apiKey = process.env.GEMINI_API_KEY;
-
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const apiKey = process.env.GEMINI_API_KEY;
 
 const app = express();
 const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-
+console.log(apiKey)
 app.post("/generate", async (req, res) => { // Changed to POST
     try {
         const genAI = new GoogleGenerativeAI(apiKey);
