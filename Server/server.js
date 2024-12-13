@@ -1,3 +1,7 @@
+require('dotenv').config()
+
+const apiKey = process.env.GEMINI_API_KEY;
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -11,7 +15,7 @@ app.use(bodyParser.json());
 
 app.post("/generate", async (req, res) => { // Changed to POST
     try {
-        const genAI = new GoogleGenerativeAI('AIzaSyAhiPKbhHp7O6NuuQwbClxyZj0V8f2TLZk');
+        const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
         const prompt = req.body.prompt; // Get the prompt from the request body
         const result = await model.generateContent(prompt);

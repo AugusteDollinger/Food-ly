@@ -46,12 +46,12 @@ if (!isset($_SESSION['id'])) {
         dishes.forEach(dish => {
             count++;
             const backgroundDiv = document.createElement('div');
-            backgroundDiv.style.backgroundColor = count % 2 === 0 ? '#1975fa' : '';
+            backgroundDiv.style.backgroundColor = count % 2 === 0 ? '#3085ff' : '';
             backgroundDiv.style.display = 'flex';
             backgroundDiv.style.justifyContent = 'center';
-            backgroundDiv.style.margin = '10px';
-            backgroundDiv.style.padding = '50px';
-            backgroundDiv.style.width = '100vw';
+            backgroundDiv.style.margin = '10px 0';
+            backgroundDiv.style.padding = '50px 0';
+            backgroundDiv.style.width = '100%';
             const dishDiv = document.createElement('div');
             dishDiv.style.width = '50%';
 
@@ -114,7 +114,7 @@ if (!isset($_SESSION['id'])) {
             health.style.color = count % 2 === 0 ? 'white' : '';
             instruction.style.color = count % 2 === 0 ? 'white' : '';
             favoriteButton.style.backgroundColor = count % 2 === 0 ? 'white' : '';
-            favoriteButton.style.color = count % 2 === 0 ? '#1975fa' : '';
+            favoriteButton.style.color = count % 2 === 0 ? '#3085ff' : '';
             ingredients.style.color = count % 2 === 0 ? 'white' : '';
 
             dishDiv.appendChild(favoriteButton);
