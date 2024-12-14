@@ -6,7 +6,6 @@ $newJson = json_decode($data['data'], true);
 
 foreach ($newJson as $item) {
     try {
-        $id_plat = uniqid();
         foreach ($item['ingredient'] as $ingredient) {
             $sql = 'SELECT * FROM ingredient WHERE LIBELLE_INGREDIENT = :name';
             $result = $base->prepare($sql);
@@ -21,15 +20,6 @@ foreach ($newJson as $item) {
             }
             else {
                 $id_ingredient = $row['ID_INGREDIENT'];
-            }
-            $sql = 'SELECT * FROM plat_ingredient WHERE ID_PLAT = :id_plat AND ID_INGREDIENT = :id_ingredient';
-            $result = $base->prepare($sql);
-            $result->execute(array('id_plat' => $id_plat, 'id_ingredient' => $id_ingredient));
-            $row = $result->fetch(PDO::FETCH_ASSOC);
-            if (!$row) {
-                $sql = 'INSERT INTO plat_ingredient (ID_PLAT, ID_INGREDIENT) VALUES (:id_plat, :id_ingredient)';
-                $result = $base->prepare($sql);
-                $result->execute(array('id_plat' => $id_plat, 'id_ingredient' => $id_ingredient));
             }
         }
         $sql = 'SELECT * FROM origine WHERE LIBELLE_ORIGINE = :name';

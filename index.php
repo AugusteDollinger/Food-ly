@@ -64,7 +64,7 @@ if (!isset($_SESSION['id'])) {
             dishDiv.appendChild(type);
 
             const regime = document.createElement('p');
-            regime.textContent = `Regime: ${dish.regime}`;
+            regime.textContent = `Regime: ${dish.diet}`;
             dishDiv.appendChild(regime);
 
             const level = document.createElement('p');
@@ -174,7 +174,7 @@ if (!isset($_SESSION['id'])) {
             4 : "etc...",
         }
         instruction(less than 400 characters) : "whatever",
-    } each one of the recipies should contains some of these ingredients :${document.getElementById('seleted-ingredient').textContent} that is a ${document.getElementById('select-by-type')}, that is from ${document.getElementById('select-by-origine').value} that has a  ${document.getElementById('select-by-regime').value}. If some of the information given have nothing to do with food please ignore it.`;
+    } each one of the recipies should contains some of these ingredients :${document.getElementById('seleted-ingredient').textContent} that is a ${document.getElementById('select-by-type').value}, that is from ${document.getElementById('select-by-origine').value} that has a  ${document.getElementById('select-by-regime').value}. If some of the information given have nothing to do with food please ignore it.`;
         submitPrompt(phpPrompt);
     }
 </script>
