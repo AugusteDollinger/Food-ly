@@ -54,6 +54,7 @@ if (isset($_GET['id'])) {
         echo '</ul>';
         echo '<p>Instructions: '.$row['INSTRUCTION'].'</p>';
         echo '<a href="show-favorite.php?id='.$row['ID_PLAT'].'">Delete</a>';
+        echo '<a href="chat.php?id='.$row['ID_PLAT'].'">Chat</a>';
         echo '</article>';
         echo '</section>';
     }
