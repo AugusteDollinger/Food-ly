@@ -57,6 +57,32 @@ while ($row = $result->fetch()) {
                 ?>
             </select>
         </li>
+        <li>
+            <label for="select-by-difficulty">Select the difficulty :</label>
+            <select name="select-by-difficulty" id="select-by-difficulty">
+                <option value="No specific difficulty">No specific difficulty</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+        </li>
+        <li>
+            <label for="select-by-healthiness">Select the healthiness</label>
+            <select name="select-by-healthiness" id="select-by-healthiness">
+                <option value="Healthy">Healthy</option>
+                <option value="Not healthy">Not specifically healthy</option>
+            </select>
+        </li>
+        <li>
+            <label for="select-by-time">Select the time :</label>
+            <select name="select-by-time" id="select-by-time">
+                <option value="No specific time">No specific time</option>
+                <option value="Less than 15 minutes">Less than 15 minutes</option>
+                <option value="Less than 30 minutes">Less than 30 minutes</option>
+                <option value="30-60 minutes">30-60 minutes</option>
+                <option value="More than 60 minutes">More than 60 minutes</option>
+            </select>
+        </li>
     </ul>
 </div>
 <button onclick="createPrompt()">Create menu</button>

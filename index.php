@@ -74,6 +74,10 @@ if (!isset($_SESSION['id'])) {
             health.textContent = `Health: ${dish.health}`;
             dishDiv.appendChild(health);
 
+            const time = document.createElement('p');
+            time.textContent = `Time: ${dish.time}`;
+            dishDiv.appendChild(time);
+
             const ingredients = document.createElement('p');
             ingredients.textContent = 'Ingredients:';
             const ingredientsList = document.createElement('ul');
@@ -108,6 +112,7 @@ if (!isset($_SESSION['id'])) {
             level.style.color = count % 2 === 0 ? 'white' : '';
             health.style.color = count % 2 === 0 ? 'white' : '';
             instruction.style.color = count % 2 === 0 ? 'white' : '';
+            time.style.color = count % 2 === 0 ? 'white' : '';
             favoriteButton.style.backgroundColor = count % 2 === 0 ? 'white' : '';
             favoriteButton.style.color = count % 2 === 0 ? '#3085ff' : '';
             ingredients.style.color = count % 2 === 0 ? 'white' : '';
@@ -121,10 +126,7 @@ if (!isset($_SESSION['id'])) {
 
     function submitPrompt(phpPrompt)  {
         const prompt = phpPrompt;
-        if (prompt === "") {
-            outputDiv.textContent = "Please enter a prompt.";
-            return;
-        }
+        console.log(prompt);
 
         outputDiv.textContent = "Thinking...";
 
@@ -159,13 +161,14 @@ if (!isset($_SESSION['id'])) {
         const outputDiv = document.getElementById('output');
         outputDiv.style.textAlign = 'center';
         outputDiv.style.backgroundColor = 'transparent';
-        const phpPrompt = `can you find 5 dishes of the form and only return json table with the following fields : {
+        const phpPrompt = `can you find minimum 2 and maximum 5 dishes of the form and only return json table with the following fields : {
         name : "whatever",
         origin : "whatever",
         type : "whatever",
         diet : "whatever",
         level : "easy/medium/hard",
         health : "healthy/unhealthy and why (less than 300 characters)",
+        time : "whatever",
         ingredient: {
             1 : "ingredient1(only give one ingredient name and only name it in the singular)",
             2 : "ingredient2(only give one ingredient name and only name it in the singular)",
@@ -173,7 +176,8 @@ if (!isset($_SESSION['id'])) {
             4 : "etc...",
         }
         instruction(less than 400 characters) : "whatever",
-    } each one of the recipies should contains some of these ingredients :${document.getElementById('seleted-ingredient').textContent} that is a ${document.getElementById('select-by-type').value}, that is from ${document.getElementById('select-by-origine').value} that has a  ${document.getElementById('select-by-regime').value}. If some of the information given have nothing to do with food please ignore it.`;
+    } each one of the recipies should contains some of these ingredients :${document.getElementById('seleted-ingredient').textContent} that is a ${document.getElementById('select-by-type').value}, that is from ${document.getElementById('select-by-origine').value} that has a  ${document.getElementById('select-by-regime').value}
+    It should be ${document.getElementById('select-by-difficulty').value}, it should be ${document.getElementById('select-by-healthiness').value}, and take around ${document.getElementById('select-by-time').value}. If some of the information given have nothing to do with food please ignore it.`;
         submitPrompt(phpPrompt);
     }
 </script>

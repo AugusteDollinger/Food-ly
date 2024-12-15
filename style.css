@@ -51,6 +51,7 @@ input, select{
     min-height: 300px;
     width: 100%;
     padding: 0;
+    gap: 10px;
 
 }
 #create-prompt-form ul li {
@@ -58,6 +59,7 @@ input, select{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 50px;
 }
 nav {
     display: flex;

@@ -43,6 +43,7 @@ if (isset($_GET['id'])) {
         echo '<p>Regime: ' . $row['LIBELLE_REGIME'] . '</p>';
         echo '<p>Level: ' . $row['NIVEAU_DIFFICULTE'] . '</p>';
         echo '<p>Health: ' . $row['HEALTH'] . '</p>';
+        echo '<p>Time: ' . $row['TIME'] . '</p>';
         echo '<p>Ingredients:</p>';
         echo '<ul>';
         $sql = 'SELECT * FROM plat_ingredient JOIN ingredient ON plat_ingredient.ID_INGREDIENT = ingredient.ID_INGREDIENT WHERE ID_PLAT = :id ';

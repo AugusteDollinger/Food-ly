@@ -32,7 +32,7 @@ if (!isset($_GET['id'])) {
         while ($row2 = $result->fetch()) {
             $ingredients .= $row2['LIBELLE_INGREDIENT'] . ', ';
         }
-        $prompt = 'You are working with the dish ' . $row['LIBELLE_PLAT'] . '. It is a ' . $row['NIVEAU_DIFFICULTE'] . ' level dish from ' . $row['LIBELLE_ORIGINE'] . '. It is a ' . $row['LIBELLE_TYPE'] . ' dish and is ' . $row['HEALTH'] . ' and is '. $row['LIBELLE_REGIME'].'. The ingredients are:'. $ingredients .' The instructions are: ' . $row['INSTRUCTION'] . 'The response has to be around than 500 charaters long, will only simple characters and no bold characters or \\n, if the question is unrelated to the recipe always answer "I cannot provide information about that". The discution history is: ';
+        $prompt = 'You are working with the dish ' . $row['LIBELLE_PLAT'] . '. It is a ' . $row['NIVEAU_DIFFICULTE'] . ' level dish from ' . $row['LIBELLE_ORIGINE'] . '. It is a ' . $row['LIBELLE_TYPE'] . ' dish and is ' . $row['HEALTH'] . ' and is '. $row['LIBELLE_REGIME'].'. The ingredients are:'. $ingredients .' The instructions are: ' . $row['INSTRUCTION'] . ', and it takes around '.$row['TIME'].'.The response has to be around than 500 charaters long, will only simple characters and no bold characters or \\n, if the question is unrelated to the recipe always answer "I cannot provide information about that". The discution history is: ';
     echo '<h1 id="chat-title">Chat with the AI about : '.$row['LIBELLE_PLAT'].'</h1>';
     ?>
     <section style="width: 100%">
