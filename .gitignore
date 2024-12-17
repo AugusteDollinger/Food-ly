@@ -1,4 +1,4 @@
-Server/node_module
-Server/package.json
-Server/package-lock.json
-.env
+/vendor
+/.env
+/composer.lock
+/composer.json
